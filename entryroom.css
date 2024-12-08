@@ -41,7 +41,7 @@ p {
 
 .parent-container {
     /* centers the content inside a flex container */
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 

@@ -31,7 +31,8 @@ body {
 }
 
 .workspace {
-    display: flex; /* for flexible layout */
+    display: flex;
+    /* for flexible layout */
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 10px;
@@ -39,6 +40,7 @@ body {
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.6);
 }
+
 /* styling for the draggable items (images) */
 .draggable {
     width: 70px;
@@ -66,6 +68,7 @@ body {
 .fish-skeleton {
     background-image: url('room3fishskeleton.png');
 }
+
 #taxidermy-form {
     width: 200px;
     height: 300px;
@@ -87,6 +90,7 @@ body {
     margin: 0 auto;
     display: flex;
 }
+
 /* positioning the audio control buttons */
 .bottom-left1 {
     position: fixed;

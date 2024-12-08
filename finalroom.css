@@ -36,7 +36,8 @@ p {
 }
 
 .parent-container {
-    display: flex; /* using flexbox layout for the container */
+    display: flex;
+    /* using flexbox layout for the container */
     justify-content: center;
 }
 
@@ -53,7 +54,8 @@ p {
 }
 
 #playAgain {
-    display: flex; /* using flexbox for the button container */
+    display: flex;
+    /* using flexbox for the button container */
     top: 100%;
     margin: 0 auto;
 }

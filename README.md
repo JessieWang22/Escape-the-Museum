@@ -5,12 +5,12 @@ Video Link: https://youtu.be/8_kHgQ7mkk8
 GitHub Link: https://github.com/JessieWang22/Escape-the-Museum 
 
 General Overview:
-Escape the Museum is designed to be an interactive web-based virtual escape room. It is set in a haunted museum and reveals more about the setting and backstory as the game goes on. Players move through the rooms by solving ancient riddles and completing challenges, making Escape the Museum highly interactive with elements like drag-and-drop functionality and audio controls (for starting and stopping the creepy ambient background music). I developed the game using HTML, CSS, and JavaScript. Each room has its own HTML structure and there is custom styling for each room and global styles for buttons, fonts, the layout, etc. I use JavaScript to handle the new room's logic (including riddle logic, music, and escape logic)
+Escape the Museum is designed to be an interactive web-based virtual escape room. It is set in a haunted museum and reveals more about the setting and backstory as the game goes on. Players move through the rooms by solving ancient riddles and completing challenges, making Escape the Museum highly interactive with elements like drag-and-drop functionality and audio controls (for starting and stopping the creepy ambient background music). I developed the game using HTML, CSS, and JavaScript. Each room has its own HTML structure and there is custom CSS styling for each room and global styles for buttons, fonts, the layout, etc. I use JavaScript to handle the new room's logic (including riddle logic, music, and escape logic)
 
 I wanted to ensure that every "room" ties back to the fact that the game is set in a museum to make the game more consistent and immersive. That is why the riddles are all pulled from historical periods and places like Ancient Sumeria and Medieval England (since they are supposed to be from different exhibits) and why I coded for a taxidermy room (since museums commonly display taxidermied animals) and etc.
 
 Set-Up/Usage:
-To play this game, you need a modern web browser like Chrome or Firefox or Safari. You can start by cloning the repository (using something like git clone https://github.com/___) AND OPENING entryroom.html. That is important: OPEN entryroom.html TO START!!!!!!
+To play this game, you need a modern web browser like Chrome or Firefox or Safari. You can start by cloning the repository (using something like git clone https://github.com/___) AND OPENING entryroom.html. That is important: OPEN entryroom.html TO START.
 
 Walking Through the Game(Includes spoilers and answers):
 - Entryroom: Once you load the page, you will be in the entryroom. Here, you meet Selena and get a little overview about the museum. However, Selena gets kidnapped and you have no choice but to follow her by clicking the "Follow Selena" button near, entering the first room.

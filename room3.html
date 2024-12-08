@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <!-- for responsive design-->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Taxidermist</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="room3.css">
-    </head>
+<head>
+    <!-- for responsive design-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Taxidermist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="room3.css">
+</head>
 
-    <body>
-        <!-- iframe for background music-->
-        <iframe src="music-player.html" style="border: none; width: 0; height: 0;" id="musicIframe"></iframe>
-        <div class="room-container">
-            <p class="instructions"> You stumble into the hall of taxidermy animals. Drag the correct taxidermy supplies to the outline below. The end is near...for better or for worse. </p>
+<body>
+    <!-- iframe for background music-->
+    <iframe src="music-player.html" style="border: none; width: 0; height: 0;" id="musicIframe"></iframe>
+    <div class="room-container">
+        <p class="instructions"> You stumble into the hall of taxidermy animals. Drag the correct taxidermy supplies to
+            the outline below. The end is near...for better or for worse. </p>
 
-            <div class="workspace">
-                <!-- glass eyes! -->
-                <div id="glass-eyes" class="draggable glass-eyes"></div>
+        <div class="workspace">
+            <!-- glass eyes! -->
+            <div id="glass-eyes" class="draggable glass-eyes"></div>
 
-                <!-- deer head! -->
-                <div id="deer-head" class="draggable deer-head"></div>
-                <!-- bear claw! -->
-                <div id="bear-claw" class="draggable distractor bear-claw"></div>
-                <!-- fish skeleton! -->
-                <div id="fish-skeleton" class="draggable distractor fish-skeleton"></div>
+            <!-- deer head! -->
+            <div id="deer-head" class="draggable deer-head"></div>
+            <!-- bear claw! -->
+            <div id="bear-claw" class="draggable distractor bear-claw"></div>
+            <!-- fish skeleton! -->
+            <div id="fish-skeleton" class="draggable distractor fish-skeleton"></div>
 
-            </div>
-
-            <!-- taxidermy outline (deer mount) - this is where the images should be placed-->
-            <div id="taxidermy-form" class="dropzone"></div>
-
-            <p id="successMessage" class="success-message">The taxidermy is complete! The hidden door creaks open...</p>
-            <button id="escapeButton" class="btn btn-primary" style="display: none;"
-                onclick="escapeRoom()">Escape</button>
         </div>
 
-        <button class="btn btn-outline-primary bottom-left1" onclick="playAudio()">Play Music</button>
-        <button class="btn btn-outline-primary bottom-left2" onclick="stopAudio()">Stop Music</button>
+        <!-- taxidermy outline (deer mount) - this is where the images should be placed-->
+        <div id="taxidermy-form" class="dropzone"></div>
 
-        <script src="taxidermy.js"></script>
-        <script>
-            const draggableElements = document.querySelectorAll('.draggable');
-            const dropzone = document.getElementById('taxidermy-form');
-            const successMessage = document.getElementById('successMessage');
-            const escapeButton = document.getElementById('escapeButton');
+        <p id="successMessage" class="success-message">The taxidermy is complete! The hidden door creaks open...</p>
+        <button id="escapeButton" class="btn btn-primary" style="display: none;" onclick="escapeRoom()">Escape</button>
+    </div>
 
-            let placedItems = {
-                'glass-eyes': false,
-                'deer-head': false
-            };
+    <button class="btn btn-outline-primary bottom-left1" onclick="playAudio()">Play Music</button>
+    <button class="btn btn-outline-primary bottom-left2" onclick="stopAudio()">Stop Music</button>
 
-            // adding drag events
-            draggableElements.forEach(element => {
-                element.addEventListener('mousedown', (e) => {
-                    element.style.position = 'absolute';
-                    element.style.zIndex = '10'; // Ensure it's above other elements
-                    element.style.cursor = 'grabbing';
+    <script src="taxidermy.js"></script>
+    <script>
+        const draggableElements = document.querySelectorAll('.draggable');
+        const dropzone = document.getElementById('taxidermy-form');
+        const successMessage = document.getElementById('successMessage');
+        const escapeButton = document.getElementById('escapeButton');
 
-                    const onMouseMove = (event) => {
-                        element.style.left = `${event.pageX - element.offsetWidth / 2}px`;
-                        element.style.top = `${event.pageY - element.offsetHeight / 2}px`;
-                    };
+        let placedItems = {
+            'glass-eyes': false,
+            'deer-head': false
+        };
 
-                    document.addEventListener('mousemove', onMouseMove);
+        // adding drag events
+        draggableElements.forEach(element => {
+            element.addEventListener('mousedown', (e) => {
+                element.style.position = 'absolute';
+                element.style.zIndex = '10'; // Ensure it's above other elements
+                element.style.cursor = 'grabbing';
 
-                    element.addEventListener('mouseup', () => {
-                        document.removeEventListener('mousemove', onMouseMove);
-                        element.style.cursor = 'grab';
+                const onMouseMove = (event) => {
+                    element.style.left = `${event.pageX - element.offsetWidth / 2}px`;
+                    element.style.top = `${event.pageY - element.offsetHeight / 2}px`;
+                };
 
-                        // checking if dropped in dropzone
-                        const dropzoneRect = dropzone.getBoundingClientRect();
-                        const elementRect = element.getBoundingClientRect();
+                document.addEventListener('mousemove', onMouseMove);
 
-                        if (
-                            elementRect.left > dropzoneRect.left &&
-                            elementRect.right < dropzoneRect.right &&
-                            elementRect.top > dropzoneRect.top &&
-                            elementRect.bottom < dropzoneRect.bottom
-                        ) {
-                            // snapping to center of dropzone
-                            element.style.left = `${dropzoneRect.left + dropzoneRect.width / 2 - elementRect.width / 2}px`;
-                            element.style.top = `${dropzoneRect.top + dropzoneRect.height / 2 - elementRect.height / 2}px`;
+                element.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    element.style.cursor = 'grab';
 
-                            // marking the item as placed
-                            placedItems[element.id] = true;
+                    // checking if dropped in dropzone
+                    const dropzoneRect = dropzone.getBoundingClientRect();
+                    const elementRect = element.getBoundingClientRect();
 
-                            // checking if all items are placed
-                            if (Object.values(placedItems).every(item => item)) {
-                                successMessage.style.display = 'block';
-                                escapeButton.style.display = 'block';
-                            }
+                    if (
+                        elementRect.left > dropzoneRect.left &&
+                        elementRect.right < dropzoneRect.right &&
+                        elementRect.top > dropzoneRect.top &&
+                        elementRect.bottom < dropzoneRect.bottom
+                    ) {
+                        // snapping to center of dropzone
+                        element.style.left = `${dropzoneRect.left + dropzoneRect.width / 2 - elementRect.width / 2}px`;
+                        element.style.top = `${dropzoneRect.top + dropzoneRect.height / 2 - elementRect.height / 2}px`;
+
+                        // marking the item as placed
+                        placedItems[element.id] = true;
+
+                        // checking if all items are placed
+                        if (Object.values(placedItems).every(item => item)) {
+                            successMessage.style.display = 'block';
+                            escapeButton.style.display = 'block';
                         }
-                    }, { once: true });
-                });
+                    }
+                }, { once: true });
             });
+        });
 
-            function escapeRoom() {
-                window.location.href = 'finalroom.html'; 
-            }
-            function playAudio() {
-                    const iframe = document.getElementById("musicIframe");
-                    iframe.contentWindow.postMessage("play", "*");
-                }
+        function escapeRoom() {
+            window.location.href = 'finalroom.html';
+        }
+        function playAudio() {
+            const iframe = document.getElementById("musicIframe");
+            iframe.contentWindow.postMessage("play", "*");
+        }
 
-            function stopAudio() {
-                    const iframe = document.getElementById("musicIframe");
-                    iframe.contentWindow.postMessage("stop", "*");
-                }
+        function stopAudio() {
+            const iframe = document.getElementById("musicIframe");
+            iframe.contentWindow.postMessage("stop", "*");
+        }
 
-        </script>
-    </body>
+    </script>
+</body>
 
 </html>
