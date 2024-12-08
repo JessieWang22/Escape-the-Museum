@@ -31,7 +31,7 @@ body {
 }
 
 .workspace {
-    display: flex;
+    display: flex; /* for flexible layout */
     justify-content: space-between;
     margin-bottom: 20px;
     padding: 10px;
@@ -39,7 +39,7 @@ body {
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.6);
 }
-
+/* styling for the draggable items (images) */
 .draggable {
     width: 70px;
     height: 70px;
@@ -50,6 +50,7 @@ body {
     border-radius: 5px;
 }
 
+/* image backgrounds for different draggable items (these are the taxidermied supplies*/
 .glass-eyes {
     background-image: url('room3glasseyes.png');
 }
@@ -85,11 +86,8 @@ body {
     top: 100%;
     margin: 0 auto;
     display: flex;
-
-    /* font-size: 0.9rem;
-    padding: 5px 10px;
-    margin-top: 10px; */
 }
+/* positioning the audio control buttons */
 .bottom-left1 {
     position: fixed;
     bottom: 10px;

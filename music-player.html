@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <!-- charset and viewport settings to ensure proper mobile responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
 </head>
 <body>
+    <!-- autoplay and loop functionality -->
     <audio id="myAudio" loop autoplay>
         <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio element. <!-- for if the browser doesn't support this audio element-->
     </audio>
-
+    <!-- JavaScript to handle communication with the parent page -->
     <script>
-        // Listen for messages from the parent page
+        // Listen for messages from the parent page (playing and stopping)
         window.addEventListener("message", (event) => {
             const audio = document.getElementById("myAudio");
 
@@ -20,7 +22,7 @@
                 audio.play();
             } else if (event.data === "stop") {
                 audio.pause();
-                audio.currentTime = 0; // Reset the audio to the beginning
+                audio.currentTime = 0; // resetting the audio to the beginning
             }
         });
     </script>

@@ -3,10 +3,10 @@
 
     <head>
 
-        <!-- To ensure proper responsive behavior in mobile devices -->
+        <!-- to ensure proper responsive behavior in mobile devices -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Adding Bootstrap -->
+        <!-- adding Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -17,8 +17,9 @@
     </head>
 
     <body>
+        <!-- embedded music player iframe-->
         <iframe src="music-player.html" style="border: none; width: 0; height: 0;" id="musicIframe"></iframe>
-
+        <!-- audio control buttons-->
         <button class="btn btn-outline-primary bottom-left1" onclick="playAudio()">Play Music</button>
         <audio id="myAudio" loop>
             <source src="music.mp3" type="audio/mpeg">
@@ -32,51 +33,52 @@
         <!-- Riddles -->
         <div class="riddle" id="riddle1">
             <p><strong>Riddle 1:</strong> There is a house. One enters it blind and comes out seeing. What is it? (Ancient Sumeria)</p>
-            <input type="text" id="answer1" placeholder="Your answer here...">
+            <input type="text" id="answer1" placeholder="Your answer here..." autocomplete="off">
             <button onclick="checkAnswer(1, 'school')">Submit</button>
             <p class="failure" id="fail1">Incorrect. Think carefully...</p>
         </div>
-
+        <!-- riddles 2 and 3 are hidden initially-->
         <div class="riddle" id="riddle2" style="display: none;">
             <p><strong>Riddle 2:</strong> I look at you whenever you look at me. You see but I see not, no sight have I. I speak but have no voice, your voice is heard. My lips can only open uselessly. What am I? (Ancient Greece)</p>
-            <input type="text" id="answer2" placeholder="Your answer here...">
+            <input type="text" id="answer2" placeholder="Your answer here..." autocomplete="off">
             <button onclick="checkAnswer(2, 'reflection')">Submit</button>
             <p class="failure" id="fail2">Incorrect. The flames grow closer...</p>
         </div>
 
         <div class="riddle" id="riddle3" style="display: none;">
             <p><strong>Riddle 3:</strong> I am biting but I do not bite anyone, and many want to bite the biter. Don’t be scared, I do not have any teeth. Who am I? (Medieval England)</p>
-            <input type="text" id="answer3" placeholder="Your answer here...">
+            <input type="text" id="answer3" placeholder="Your answer here..." autocomplete="off">
             <button onclick="checkAnswer(3, 'onion')">Submit</button>
             <p class="failure" id="fail3">Incorrect. The void whispers...</p>
         </div>
-
+        <!-- when all riddles are answered correctly-->
         <p class="success" id="successMessage">The door creaks open... you are free to proceed.</p>
         <button id="escape" class="btn btn-outline-primary" onclick="window.location.href='room3.html'">Flee the Flames!</button>
 
         <script>
+            // checking the answer to the riddle
             function checkAnswer(riddleNumber, correctAnswer) {
                 const userAnswer = document.getElementById(`answer${riddleNumber}`).value.trim().toLowerCase();
                 const riddleElement = document.getElementById(`riddle${riddleNumber}`);
                 if (userAnswer === correctAnswer) {
-                    riddleElement.style.display = "none";
+                    riddleElement.style.display = "none"; //hiding the riddle if the answer is correct
                     if (riddleNumber < 3) {
-                        document.getElementById(`riddle${riddleNumber + 1}`).style.display = "block";
+                        document.getElementById(`riddle${riddleNumber + 1}`).style.display = "block"; //showing the next riddle
                     } else {
-                        document.getElementById("successMessage").style.display = "block";
+                        document.getElementById("successMessage").style.display = "block";// display success message after the last riddle
                         openDoor();
                     }
                 } else {
                     const failMessage = document.getElementById(`fail${riddleNumber}`);
-                    failMessage.style.display = "block";
-                    riddleElement.classList.add("shake");
+                    failMessage.style.display = "block"; //showing failure message
+                    riddleElement.classList.add("shake"); //shaking the riddle box as an effect to signal failure lol
                     setTimeout(() => {
                         failMessage.style.display = "none";
-                        riddleElement.classList.remove("shake");
+                        riddleElement.classList.remove("shake"); // stopping the shaking 
                     }, 2000);
                 }
             }
-
+            // making the escape button visible once the riddles are completed 
             function openDoor() {
                 document.getElementById("escape").style.visibility = "visible";
             }

@@ -2,6 +2,7 @@ html {
     background-color: black;
 }
 
+/* using an image as the background for the body, making sure that it is covering the entire area, centered, and not repeated */
 body {
     background-image: url("entryroombg.jpg");
     background-size: cover;
@@ -39,10 +40,12 @@ p {
 }
 
 .parent-container {
-    display: flex;
+    /* centers the content inside a flex container */
+    display: flex; 
     justify-content: center;
 }
 
+/* positioning the audio control buttons*/
 .bottom-left1 {
     position: fixed;
     bottom: 10px;

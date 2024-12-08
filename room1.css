@@ -2,9 +2,6 @@ html,
 body {
     height: 100%;
     margin: 0;
-}
-
-body {
     background-image: url("room1door.jpg");
     background-size: cover;
     background-position: center;
@@ -36,7 +33,7 @@ img {
     width: 5%;
     /* shrinking it to 50% of the original size */
     height: auto;
-    /* Maintain aspect ratio */
+    /* maintaining aspect ratio */
 }
 
 #key {
@@ -48,8 +45,8 @@ img {
 
 #escape {
     visibility: hidden;
+    display: block;
     margin: 0 auto;
-    text-align: center;
 }
 
 .alert {

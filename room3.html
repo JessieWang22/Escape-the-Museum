@@ -2,6 +2,7 @@
 <html lang="en">
 
     <head>
+        <!-- for responsive design-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The Taxidermist</title>
@@ -10,26 +11,27 @@
     </head>
 
     <body>
+        <!-- iframe for background music-->
         <iframe src="music-player.html" style="border: none; width: 0; height: 0;" id="musicIframe"></iframe>
         <div class="room-container">
             <p class="instructions"> You stumble into the hall of taxidermy animals. Drag the correct taxidermy supplies to the outline below. The end is near...for better or for worse. </p>
 
-            <!-- Workspace -->
             <div class="workspace">
-                <!-- Glass Eyes -->
+                <!-- glass eyes! -->
                 <div id="glass-eyes" class="draggable glass-eyes"></div>
 
-                <!-- Deer Head -->
+                <!-- deer head! -->
                 <div id="deer-head" class="draggable deer-head"></div>
+                <!-- bear claw! -->
                 <div id="bear-claw" class="draggable distractor bear-claw"></div>
+                <!-- fish skeleton! -->
                 <div id="fish-skeleton" class="draggable distractor fish-skeleton"></div>
 
             </div>
 
-            <!-- Taxidermy Form -->
+            <!-- taxidermy outline (deer mount) - this is where the images should be placed-->
             <div id="taxidermy-form" class="dropzone"></div>
 
-            <!-- Success Message -->
             <p id="successMessage" class="success-message">The taxidermy is complete! The hidden door creaks open...</p>
             <button id="escapeButton" class="btn btn-primary" style="display: none;"
                 onclick="escapeRoom()">Escape</button>
@@ -50,7 +52,7 @@
                 'deer-head': false
             };
 
-            // Add drag events
+            // adding drag events
             draggableElements.forEach(element => {
                 element.addEventListener('mousedown', (e) => {
                     element.style.position = 'absolute';
@@ -68,7 +70,7 @@
                         document.removeEventListener('mousemove', onMouseMove);
                         element.style.cursor = 'grab';
 
-                        // Check if dropped in dropzone
+                        // checking if dropped in dropzone
                         const dropzoneRect = dropzone.getBoundingClientRect();
                         const elementRect = element.getBoundingClientRect();
 
@@ -78,14 +80,14 @@
                             elementRect.top > dropzoneRect.top &&
                             elementRect.bottom < dropzoneRect.bottom
                         ) {
-                            // Snap to center of dropzone
+                            // snapping to center of dropzone
                             element.style.left = `${dropzoneRect.left + dropzoneRect.width / 2 - elementRect.width / 2}px`;
                             element.style.top = `${dropzoneRect.top + dropzoneRect.height / 2 - elementRect.height / 2}px`;
 
-                            // Mark the item as placed
+                            // marking the item as placed
                             placedItems[element.id] = true;
 
-                            // Check if all items are placed
+                            // checking if all items are placed
                             if (Object.values(placedItems).every(item => item)) {
                                 successMessage.style.display = 'block';
                                 escapeButton.style.display = 'block';
@@ -95,9 +97,8 @@
                 });
             });
 
-            // Escape Room Function
             function escapeRoom() {
-                window.location.href = 'finalroom.html'; // Replace with your next room URL
+                window.location.href = 'finalroom.html'; 
             }
             function playAudio() {
                     const iframe = document.getElementById("musicIframe");

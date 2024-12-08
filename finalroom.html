@@ -3,7 +3,7 @@
 
     <head>
 
-        <!-- To ensure proper responsive behavior in mobile devices -->
+        <!-- to ensure proper responsive behavior in mobile devices -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Adding Bootstrap -->
@@ -17,9 +17,9 @@
     </head>
 
     <body>
-        <!-- Persistent Music Player -->
+        <!-- persistent music player -->
         <iframe src="music-player.html" style="border: none; width: 0; height: 0;" id="musicIframe"></iframe>
-
+        <!-- audio control buttons -->
         <button class="btn btn-outline-primary bottom-left1" onclick="playAudio()">Play Music</button>
         <audio id="myAudio" loop>
             <source src="music.mp3" type="audio/mpeg">
@@ -46,6 +46,7 @@
             <p> She explains that vampires had invaded the museum seeking ancient texts and artifacts but had melted in the sun. However, they hadn't found the amulet they were looking for and had cursed all the rooms in the museum in their rage. </p>
             <p> Nevertheless, you've escaped! With such power, what will you do next?</p>
         </div>
+        <!-- button to restart the game and return to the entry room -->
         <button id="playAgain" class="btn btn-outline-primary" onclick="window.location.href='entryroom.html'">Play Again</button>
     </body>
 
