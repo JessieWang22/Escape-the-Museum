@@ -68,17 +68,7 @@
     <button class="btn btn-outline-primary bottom-left1" onclick="playAudio()">Play Music</button>
     <button class="btn btn-outline-primary bottom-left2" onclick="stopAudio()">Stop Music</button>
 
-    <script>
-        function playAudio() {
-            const iframe = document.getElementById("musicIframe");
-            iframe.contentWindow.postMessage("play", "*");
-        }
-
-        function stopAudio() {
-            const iframe = document.getElementById("musicIframe");
-            iframe.contentWindow.postMessage("stop", "*");
-        }
-    </script>
+    <script src="audio.js"></script>
 </body>
 
 

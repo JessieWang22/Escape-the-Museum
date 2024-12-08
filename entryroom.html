@@ -29,17 +29,8 @@
     <button class="btn btn-outline-primary bottom-left2" onclick="stopAudio()">Stop Music</button>
 
     <!-- Sends play/stop messages to iframe, starting/stopping the music -->
-    <script>
-        function playAudio() {
-            const iframe = document.getElementById("musicIframe");
-            iframe.contentWindow.postMessage("play", "*");
-        }
-
-        function stopAudio() {
-            const iframe = document.getElementById("musicIframe");
-            iframe.contentWindow.postMessage("stop", "*");
-        }
-    </script>
+    <script src="audio.js"></script>
+     
     <div class="header">
         <h1>The All-Fun Museum</h1>
     </div>
