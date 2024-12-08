@@ -2,6 +2,8 @@ Hello! Thank you for reviewing my final project: Escape the Museum!
 
 Video Link: https://youtu.be/8_kHgQ7mkk8
 
+GitHub Link: https://github.com/JessieWang22/Escape-the-Museum 
+
 General Overview:
 Escape the Museum is designed to be an interactive web-based virtual escape room. It is set in a haunted museum and reveals more about the setting and backstory as the game goes on. Players move through the rooms by solving ancient riddles and completing challenges, making Escape the Museum highly interactive with elements like drag-and-drop functionality and audio controls (for starting and stopping the creepy ambient background music). I developed the game using HTML, CSS, and JavaScript. Each room has its own HTML structure and there is custom styling for each room and global styles for buttons, fonts, the layout, etc. I use JavaScript to handle the new room's logic (including riddle logic, music, and escape logic)
 
