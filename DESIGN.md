@@ -1,6 +1,3 @@
-discusses, technically, how you implemented your project and why you made the design decisions you di
-consider your design document your opportunity to give the staff a technical tour of your project underneath its hood.
-
 Structure:
 My project consists of individual room files (like room1.html, room2.html, finalroom.html, etc.) Each room offers a distinct puzzle or story beat. Each rom also has a background image relevant to its content (either based on the story information it provides or the puzzle/riddle it presents) and interactive elements that respond to user input. My project has a sequential flow. Just like in a real escape room, only once you solve the puzzle/challenge can you proceed to the next one. Here, once you solve the puzzle, a success message pops up and a button that will redirect you to the next room (that was previously hidden using CSS) appears. 
 
